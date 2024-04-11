@@ -49,7 +49,7 @@ function Login() {
             localStorage.setItem('datenow',datenow);
             
             if(response.data.pos==='student' &&  response.data.token1){
-                window.location.href = "/SProfile";
+                window.location.href = "/pages/SProfile";
             }
             else if(response.data.pos==='teacher' &&  response.data.token1){
                 window.location.href = "./TProfile";
