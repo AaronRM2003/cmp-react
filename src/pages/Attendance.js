@@ -95,18 +95,17 @@ function Attendance() {
         console.log(from,to);
         let result = [];
        var date = '';
-        for (let sub in data.attendance) {
+       for (let sub in data.attendance) {
             let subject = data.attendance[sub].filter((item) => {
                 var [day, month, year] = item.date.split("/");
-                var year1='';
+                var year1=year;
                 if(year.length===2){
                   year1 = "20"+year;
                 }
                 
-                 date = new Date(year1, month-1 , day);
-                
+                const date = new Date(year1, month-1 , day);
                 return date.getTime() >= from.getTime() && date.getTime() <= to.getTime();
-            }).map(item => ({ subject: sub, date: date.toLocaleDateString('en-IN'), value: item.value }));
+            }).map(item => ({ subject: sub, date: item.date, value: item.value }));
             result.push(...subject);
         };
 
