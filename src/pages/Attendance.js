@@ -17,25 +17,7 @@ function Attendance() {
     const [showCalendar1, setShowCalendar1] = useState(false);
     const [date, setDate] = useState(new Date());
     const [date1, setDate1] = useState(new Date());
-    if(localStorage.getItem("token1")){
-        let intervalId = setInterval(() => {
-            const currentDate = Date.now();
-            const data = localStorage.getItem("token1");
-            const datenow = localStorage.getItem("datenow");
-            const decodedToken = jwtDecode(data);
-            console.log(decodedToken.exp);
-            if(decodedToken.exp*1000 < currentDate-datenow && b){
-                alert('Session Timeout\nRedirecting to login page');
-                navigate('/pages/Form', { replace: true });
-                window.location.href='./Form';
-                b=false;
-                clearInterval(intervalId); // Clear the interval
-            }
-        }, 1 * 10000);
-      }
-      else{
-        window.location.href='./Form';
-      }
+   
    
     const navigate = useNavigate();
     const handleDateChange = (date) => {
@@ -58,6 +40,25 @@ function Attendance() {
         window.location.href='./SProfile';
     }
     useEffect(() => {
+        if(localStorage.getItem("token1")){
+            let intervalId = setInterval(() => {
+                const currentDate = Date.now();
+                const data = localStorage.getItem("token1");
+                const datenow = localStorage.getItem("datenow");
+                const decodedToken = jwtDecode(data);
+                console.log(decodedToken.exp);
+                if(decodedToken.exp*1000 < currentDate-datenow && b){
+                    alert('Session Timeout\nRedirecting to login page');
+                    navigate('/pages/Form', { replace: true });
+                    window.location.href='./Form';
+                    b=false;
+                    clearInterval(intervalId); // Clear the interval
+                }
+            }, 1 * 10000);
+          }
+          else{
+            window.location.href='./Form';
+          }
         const fetchData = async () => {
             const response = await fetch("https://cmp-server.onrender.com/api/student");
             const data = await response.json();
@@ -70,21 +71,42 @@ function Attendance() {
     const subAtt = (data,date, date1) => {
         if (!data) return [];
 
-        const [fromDay, fromMonth, fromYear] = date.toLocaleDateString('en-US').split("/");
-        const [toDay, toMonth, toYear] = date1.toLocaleDateString('en-US').split("/");
-
-        const from = new Date(fromYear, fromMonth , fromDay);
-        const to = new Date(toYear, toMonth , toDay);
+        var [fromDay, fromMonth, fromYear] = date.toLocaleDateString('en-IN').split("/");
+        if(fromYear.length===2){
+            fromYear = "20"+fromYear;
+        }
+        if(fromDay.length===1){
+            fromDay= "0"+fromDay;
+        }
+        if(fromMonth.length===1){
+            fromMonth= "0"+fromMonth;
+        }
+        
+        var [toDay, toMonth, toYear] = date1.toLocaleDateString('en-IN').split("/");
+        
+        if(toDay.length===1){
+            toDay= "0"+toDay;
+        }
+        if(toMonth.length===1){
+            toMonth= "0"+toMonth;
+        }
+        const from = new Date(fromYear, fromMonth-1 , fromDay);
+        const to = new Date(toYear, toMonth-1 , toDay);
+        console.log(from,to);
         let result = [];
-
+       var date = '';
         for (let sub in data.attendance) {
             let subject = data.attendance[sub].filter((item) => {
-                const [day, month, year] = item.date.split("/");
+                var [day, month, year] = item.date.split("/");
+                var year1='';
+                if(year.length===2){
+                  year1 = "20"+year;
+                }
                 
-                const date = new Date(year, month - 1, day);
-           
+                 date = new Date(year1, month-1 , day);
+                
                 return date.getTime() >= from.getTime() && date.getTime() <= to.getTime();
-            }).map(item => ({ subject: sub, date: item.date, value: item.value }));
+            }).map(item => ({ subject: sub, date: date.toLocaleDateString('en-IN'), value: item.value }));
             result.push(...subject);
         };
 
