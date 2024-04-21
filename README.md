@@ -2,6 +2,9 @@
 
 Welcome to the Campus Management Portal repository! This web application is designed to streamline campus management tasks, making it easier for administrators, faculty, and students to access important information and perform necessary functions.
 
+## Website
+[Visit the Campus Management Portal](https://main.dolfrdzgkgtyv.amplifyapp.com/)
+
 ## Features
 - **Dashboard**: Provides an overview of key campus metrics and upcoming events.
 - **Student Management**: Allows administrators to manage student records, enrollments, and attendance.
