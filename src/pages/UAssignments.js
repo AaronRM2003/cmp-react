@@ -425,7 +425,7 @@ const navigate = useNavigate();
                             className="form"
                 type="text"
                 placeholder="Date"
-                    value={date.toLocaleDateString()}
+                    value={date.toLocaleDateString('en-IN')}
                     readOnly
                     
                 onChange={(event) => setDate(event.target.value)}
