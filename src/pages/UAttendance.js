@@ -87,7 +87,7 @@ function UAttendance(){
     function handleatt(event){
         event.preventDefault();
         const hasEmptyString = Object.values(selectedValues).some(value => value === '');
-        const [fromMonth, fromDay, fromYear] = date.toLocaleDateString().split("/");
+        const [fromMonth, fromDay, fromYear] = date.toLocaleDateString('en-IN').split("/");
        // const date1 = new Date(fromYear, fromMonth - 1, fromDay);
          date = date.toLocaleDateString('en-IN');
         if(!hasEmptyString && Object.keys(selectedValues).length === data.length  && 0 < fromDay && fromDay <= 31 && 0 < fromMonth && fromMonth < 13 && 2020 < fromYear && fromYear < 2199){
@@ -201,7 +201,7 @@ function UAttendance(){
                                  className={isDesktop ? "form1" : "form"}
                                  type="text"
                                  placeholder="dd/mm/yyyy"
-                                 value={date.toLocaleDateString() }
+                                 value={date.toLocaleDateString('en-IN') }
                                  readOnly
                              />
                          </form>
