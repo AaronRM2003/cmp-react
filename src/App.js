@@ -61,7 +61,7 @@ export default function App() {
                     </div> </div></p>
      
                     </>:<>  
-                 <img style={{width:'130px',objectFit:'contain'}} src={img}></img><div style={{marginLeft:'10%',marginTop:'5%',width:'100%',marginBottom:'5%'}}> <div className="h" style={{marginTop:'0%',marginBottom:'0%'}}><div onClick={()=>setShow(true)}> <Link className="link" to="/pages/Form"  >Login</Link>      <Link className="link" to="/pages/Contact" >Contact</Link>   <Link className="link" to="/pages/About">About</Link>
+                 <img style={{width:'100px',objectFit:'contain'}} src={img}></img><div style={{marginLeft:'10%',marginTop:'5%',width:'100%',marginBottom:'5%'}}> <div className="h" style={{marginTop:'0%',marginBottom:'0%'}}><div onClick={()=>setShow(true)}> <Link className="link" to="/pages/Form"  >Login</Link>      <Link className="link" to="/pages/Contact" >Contact</Link>   <Link className="link" to="/pages/About">About</Link>
                     </div> </div></div></>}
 
             </div>
