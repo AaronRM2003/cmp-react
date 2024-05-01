@@ -147,17 +147,17 @@ function Home() {
       <h1 style={{color:'lightgreen',textAlign:'center'}}>Welcome to Campus Connect!</h1>
                <h5 style={{fontStyle:'italic'}}>Where Management Meets Innovation. </h5>
            <div style={{display:'flex',flexDirection:'column'}}>
-             <div className='attcont3' style={{marginTop:'10%'}}>
+             <div className='attcont2' style={{marginTop:'10%'}}>
              
                <h2 style={{color:'yellow'}}>Simplify Your Academic World Dive into a seamless management experience.</h2> <h4>Campus Connect is your digital companion, streamlining every aspect of campus life.</h4>           </div>
 
-<div className='attcont3' style={{marginTop:'10%'}}>
+<div className='attcont2' style={{marginTop:'10%'}}>
 <h2 style={{color:'yellow'}}>For Students:</h2> <h4>Navigate your academic voyage with ease. Access schedules, track grades, and utilize campus resources—all in one place.
 </h4></div>
-<div className='attcont3' style={{marginTop:'10%'}}>
+<div className='attcont2' style={{marginTop:'10%'}}>
 <h2 style={{color:'yellow'}}>For Faculty:</h2><h4> Empower your teaching with our intuitive tools. Manage courses, engage with students, and harness the power of efficient grading.
 </h4></div>
-<div className='attcont3' style={{marginTop:'10%'}}>
+<div className='attcont2' style={{marginTop:'10%'}}>
 <h2 style={{color:'yellow'}}>For Administrators:</h2><h4> Lead with insight. Oversee operations, analyze data, and elevate your institution with our comprehensive management solutions.
 </h4></div>
 </div>
