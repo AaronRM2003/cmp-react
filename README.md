@@ -15,7 +15,7 @@ Welcome to the Campus Management Portal repository! This web application is desi
 ## Technologies Used
 - React.js
 - AWS Amplify for hosting
-- [Add any additional technologies/frameworks used]
+- Render for server hosting 
 
 ## Getting Started
 To run this application locally, follow these steps:
